@@ -1,19 +1,17 @@
-/* Variables */
 :root {
   --primary-color: #00bcd4;
   --primary-dark: #00acc1;
   --background: #e0f7fa;
-  --text: #000000; /* Cambiado a negro */
-  --text-light: #333333; /* Más oscuro */
+  --text: #000000;
+  --text-light: #333333;
   --white: #ffffff;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+  --border-radius: 12px;
 }
 
-/* Base Styles */
 body {
   font-family: 'Poppins', 'Segoe UI', sans-serif;
-  background-color: var(--background);
   color: var(--text);
   line-height: 1.7;
   min-height: 100vh;
@@ -22,11 +20,8 @@ body {
   align-items: center;
   padding: 2rem;
   margin: 0;
-}
-
-/* Text Color */
-.black-text {
-  color: var(--text) !important;
+  background: url('./assets/image.png') center/cover no-repeat fixed;
+  filter: contrast(110%) brightness(1.1);
 }
 
 /* Container */
@@ -36,13 +31,27 @@ body {
   margin: 0 auto;
   padding: 3rem;
   text-align: center;
-  background-color: var(--white);
-  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.55); /* Más transparente */
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   position: relative;
+  backdrop-filter: blur(3px);
 }
 
-/* Header */
+/* Elementos con fondo */
+.card-centered,
+.location-card-super-centered,
+.contact-section-centered,
+.schedule-section-centered,
+.social-link-centered {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(4px);
+}
+
+.black-text {
+  color: var(--text) !important;
+}
+
 .header-centered {
   margin-bottom: 3rem;
   width: 100%;
@@ -93,7 +102,6 @@ body {
   font-weight: 400;
 }
 
-/* Main Content */
 .main-content-centered {
   display: flex;
   flex-direction: column;
@@ -104,9 +112,8 @@ body {
 }
 
 .card-centered {
-  background-color: var(--white);
   padding: 2.5rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   transition: var(--transition);
   width: 100%;
@@ -183,7 +190,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* Location Section */
 .location-wrapper-centered {
   display: flex;
   flex-direction: column;
@@ -209,9 +215,8 @@ body {
 }
 
 .location-card-super-centered {
-  background-color: var(--white);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 800px;
@@ -238,10 +243,10 @@ body {
   width: 100%;
 }
 
-.contact-section-centered, .schedule-section-centered {
-  background: #f9f9f9;
+.contact-section-centered,
+.schedule-section-centered {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   flex: 1;
   min-width: 250px;
   text-align: center;
@@ -269,7 +274,6 @@ body {
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
   transition: var(--transition);
-  background-color: #f5f5f5;
   min-width: 150px;
   justify-content: center;
 }
@@ -280,7 +284,6 @@ body {
   transform: translateY(-3px);
 }
 
-/* Footer */
 .footer-super-centered {
   font-size: 1.1rem;
   margin-top: 3rem;
@@ -299,10 +302,15 @@ body {
   gap: 0.5rem;
 }
 
-/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes bounce {
@@ -323,42 +331,43 @@ body {
   animation-delay: 0.3s;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .container {
     padding: 2rem 1.5rem;
   }
-  
+
   .title-centered {
     font-size: 2.2rem;
   }
-  
+
   .subtitle-centered {
     font-size: 1.1rem;
   }
-  
+
   .card-centered {
     padding: 1.8rem;
   }
-  
+
   .contact-info-super-centered {
     flex-direction: column;
     align-items: center;
   }
-  
-  .contact-section-centered, .schedule-section-centered {
+
+  .contact-section-centered,
+  .schedule-section-centered {
     width: 100%;
   }
-  
+
   .social-icons-super-centered {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .social-link-centered {
     width: 100%;
   }
 }
+
 
 
 

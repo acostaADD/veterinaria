@@ -6,9 +6,14 @@ import './App.css';
 function App() {
   const [citas, setCitas] = useState(0);
   const [showLocation, setShowLocation] = useState(false);
+  const [showFeaturedServices, setShowFeaturedServices] = useState(false);
 
   const toggleLocation = () => {
     setShowLocation(!showLocation);
+  };
+
+  const toggleFeaturedServices = () => {
+    setShowFeaturedServices(!showFeaturedServices);
   };
 
   return (
@@ -53,6 +58,36 @@ function App() {
         </section>
       </div>
 
+      {/* Botón y sección de servicios destacados */}
+      <div className="featured-services-wrapper-centered">
+        <button onClick={toggleFeaturedServices} className="featured-services-button-centered">
+          {showFeaturedServices ? 'Ocultar Servicios Destacados' : 'Ver Servicios Destacados'}
+        </button>
+        
+        {showFeaturedServices && (
+          <div className="featured-services-card-centered">
+            <h2 className="black-text">⭐ Servicios Destacados</h2>
+            <div className="featured-services-grid">
+              <div className="featured-service-item">
+                <h3 className="black-text">🐕 Chequeo Anual Premium</h3>
+                <p className="black-text">Incluye examen físico completo, perfil bioquímico, hemograma y vacunas.</p>
+                <p className="price-text">S/ 120.00</p>
+              </div>
+              <div className="featured-service-item">
+                <h3 className="black-text">✂️ Spa Canino Completo</h3>
+                <p className="black-text">Baño terapéutico, corte de pelo, limpieza de oídos y corte de uñas.</p>
+                <p className="price-text">S/ 80.00</p>
+              </div>
+              <div className="featured-service-item">
+                <h3 className="black-text">❤️ Paquete de Esterilización</h3>
+                <p className="black-text">Incluye cirugía, medicamentos y control post-operatorio.</p>
+                <p className="price-text">S/ 250.00</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Sección de ubicación */}
       <div className="location-wrapper-centered">
         <button onClick={toggleLocation} className="location-button-centered">
@@ -65,7 +100,7 @@ function App() {
             <div className="map-container-super-centered">
               <iframe
                 title="Ubicación Veterinaria Huellitas - Jr. Hermilio Valdizán 750"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.847376221675!2d-76.2407229250196!3d-9.932253988123997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c30b4a526e4f%3A0x8d1b6f5b0d5b5b5b!2sJr.%20Hermilio%20Valdiz%C3%A1n%20750%2C%20Hu%C3%A1nuco%2010001!5e0!3m2!1ses!2spe!4v1712345678901!5m2!1ses!2spe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.847376221675!2d-76.2407229250196!3d-9.932253888123997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c30b4a526e4f%3A0x8d1b6f5b0d5b5b5b!2sJr.%20Hermilio%20Valdiz%C3%A1n%20750%2C%20Hu%C3%A1nuco%2010001!5e0!3m2!1ses!2spe!4v1712345678901!5m2!1ses!2spe"
                 width="100%"
                 height="300"
                 style={{border:0}}
