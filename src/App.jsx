@@ -1,10 +1,12 @@
+// src/App.jsx
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
+import viteLogo from '/vite.svg';
+import reactLogo from './assets/react.svg';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
-  const [citas, setCitas] = useState(0);
+  const navigate = useNavigate();
   const [showLocation, setShowLocation] = useState(false);
   const [showFeaturedServices, setShowFeaturedServices] = useState(false);
 
@@ -28,19 +30,17 @@ function App() {
             <img src={reactLogo} className="logo" alt="React logo" />
           </a>
         </div>
-        <h1 className="title-centered">Veterinaria Huellitas <span>🐶</span></h1>
-        <p className="subtitle-centered">Tu mascota en las mejores manos <span>🐾</span></p>
+        <h1 className="title-centered">Veterinaria Huellitas 🐶</h1>
+        <p className="subtitle-centered">Tu mascota en las mejores manos 🐾</p>
       </header>
 
       {/* Contenido principal */}
       <div className="main-content-centered">
-        {/* Botón para agendar cita */}
         <section className="card-centered">
           <h2 className="black-text">Agendar Cita</h2>
           <p className="black-text">Reserva una cita para tu mascota de forma rápida y sencilla.</p>
-          <button onClick={() => setCitas(c => c + 1)} className="cta-button-centered">
-            <span>Agendar cita</span> 
-            <span>({citas})</span>
+          <button onClick={() => navigate('/indice')} className="cta-button-centered">
+            <span>Agendar cita</span>
           </button>
         </section>
 
@@ -58,12 +58,12 @@ function App() {
         </section>
       </div>
 
-      {/* Botón y sección de servicios destacados */}
+      {/* Servicios destacados */}
       <div className="featured-services-wrapper-centered">
         <button onClick={toggleFeaturedServices} className="featured-services-button-centered">
           {showFeaturedServices ? 'Ocultar Servicios Destacados' : 'Ver Servicios Destacados'}
         </button>
-        
+
         {showFeaturedServices && (
           <div className="featured-services-card-centered">
             <h2 className="black-text">⭐ Servicios Destacados</h2>
@@ -88,12 +88,12 @@ function App() {
         )}
       </div>
 
-      {/* Sección de ubicación */}
+      {/* Ubicación y contactos */}
       <div className="location-wrapper-centered">
         <button onClick={toggleLocation} className="location-button-centered">
           {showLocation ? 'Ocultar Ubicación' : 'Ver Ubicación y Contactos'}
         </button>
-        
+
         {showLocation && (
           <div className="location-card-super-centered">
             <h2 className="black-text">📌 Nuestra Ubicación</h2>
@@ -103,12 +103,12 @@ function App() {
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.847376221675!2d-76.2407229250196!3d-9.932253888123997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91a7c30b4a526e4f%3A0x8d1b6f5b0d5b5b5b!2sJr.%20Hermilio%20Valdiz%C3%A1n%20750%2C%20Hu%C3%A1nuco%2010001!5e0!3m2!1ses!2spe!4v1712345678901!5m2!1ses!2spe"
                 width="100%"
                 height="300"
-                style={{border:0}}
+                style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
               ></iframe>
             </div>
-            
+
             <div className="contact-info-super-centered">
               <div className="contact-section-centered">
                 <h3 className="black-text">📞 Contactos</h3>
@@ -116,7 +116,7 @@ function App() {
                 <p className="black-text">Emergencias: 987 654 322</p>
                 <p className="black-text">Email: contacto@huellitas.com</p>
               </div>
-              
+
               <div className="schedule-section-centered">
                 <h3 className="black-text">🕒 Horario de Atención</h3>
                 <p className="black-text">Lunes a Viernes: 8:00 am - 8:00 pm</p>
@@ -124,7 +124,7 @@ function App() {
                 <p className="black-text">Emergencias: 24/7</p>
               </div>
             </div>
-            
+
             <div className="social-media-super-centered">
               <h3 className="black-text">🌐 Síguenos en Redes</h3>
               <div className="social-icons-super-centered">
@@ -148,16 +148,13 @@ function App() {
 
       {/* Footer */}
       <footer className="footer-super-centered">
-        <p className="black-text">
-          <span>📍</span> Jr. Hermilio Valdizán 750 - Huánuco
-        </p>
-        <p className="black-text">
-          <span>☎</span> 987 654 321
-        </p>
+        <p className="black-text">📍 Jr. Hermilio Valdizán 750 - Huánuco</p>
+        <p className="black-text">☎ 987 654 321</p>
       </footer>
     </div>
   );
 }
 
 export default App;
+
 
